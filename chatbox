@@ -1,0 +1,32 @@
+def chatbot_response(user_input):
+    # Define a dictionary with rules and responses
+    rules = {
+        "hello": "Hi there! How can I help you?",
+        "how are you": "I'm a chatbot, so I don't have feelings, but thanks for asking!",
+        "bye": "Goodbye! Have a great day!",
+        "what is your name": "I am a simple rule-based chatbot.",
+    }
+    
+    # Normalize the user input
+    user_input = user_input.lower()
+    
+    # Find the response based on the rules
+    response = rules.get(user_input, "I'm not sure how to respond to that.")
+    
+    return response
+
+def chat():
+    print("Welcome to the rule-based chatbot! Type 'bye' to exit.")
+    
+    while True:
+        user_input = input("You: ")
+        
+        if user_input.lower() == "bye":
+            print("Chatbot: Goodbye! Have a great day!")
+            break
+        
+        response = chatbot_response(user_input)
+        print(f"Chatbot: {response}")
+
+# Run the chat
+chat()
